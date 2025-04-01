@@ -9,7 +9,7 @@ app.secret_key = 'secret123'  # Secret key for session management
 # Database connection function
 def get_db_connection():
     dsn = cx_Oracle.makedsn('localhost', 1521, service_name='xe')  # Change as per your DB settings
-    conn = cx_Oracle.connect(user='SYSTEM', password='RAYAN123', dsn=dsn)
+    conn = cx_Oracle.connect(user='your_username', password='your_password', dsn=dsn)
     return conn
 
 # Home Route
