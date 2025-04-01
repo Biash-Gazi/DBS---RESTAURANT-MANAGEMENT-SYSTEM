@@ -18,16 +18,40 @@ def home():
     return render_template('home.html')
 
 # Admin Login Route
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/admin_login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
         pin = request.form['pin']
         if pin == '1234':
-            session['admin'] = True
             return redirect('/admin_dashboard')
         else:
             return "Access Denied! Incorrect PIN."
     return render_template('admin_login.html')
+
+# Admin Dashboard Route
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
+
+# Add Item to Menu
+@app.route('/add_item')
+def add_item():
+    return render_template('add_item.html')
+
+# Delete Item from Menu
+@app.route('/delete_item')
+def delete_item():
+    return render_template('delete_item.html')
+
+# View Orders
+@app.route('/view_orders')
+def view_orders():
+    return render_template('view_orders.html')
+
+# Find Most Popular Menu Item
+@app.route('/popular_item')
+def popular_item():
+    return render_template('popular_item.html')
 
 # User Signup Route
 @app.route('/signup', methods=['GET', 'POST'])
